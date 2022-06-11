@@ -39,3 +39,27 @@ test('button text changes to Change to red', () => {
   //check if text changed to Change to red
   expect(colorBtn).toHaveTextContent('Change to red');
 });
+
+test('button has a checkbox', () => {
+  render(<ColorButton />);
+
+  const checkbox = screen.getByRole('checkbox');
+  expect(checkbox).toBeInTheDocument();
+});
+
+test('when box is unchecked button is enabled', () => {
+  render(<ColorButton />);
+
+  const colorBtn = screen.getByRole('button');
+  expect(colorBtn).not.toBeDisabled();
+});
+
+test('when box is checked button is disabled', () => {
+  render(<ColorButton />);
+
+  const checkbox = screen.getByRole('checkbox');
+  fireEvent.click(checkbox);
+
+  const colorBtn = screen.getByRole('button');
+  expect(colorBtn).toBeDisabled();
+});

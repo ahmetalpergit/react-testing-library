@@ -5,6 +5,7 @@ const ColorButton = () => {
     color: 'red',
     text: 'Change to blue',
   });
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const buttonClickHandler = () => {
     buttonSettings.color === 'red'
@@ -19,12 +20,22 @@ const ColorButton = () => {
   };
 
   return (
-    <button
-      style={{ backgroundColor: buttonSettings.color }}
-      onClick={buttonClickHandler}
-    >
-      {buttonSettings.text}
-    </button>
+    <>
+      <button
+        style={{ backgroundColor: buttonSettings.color }}
+        onClick={buttonClickHandler}
+        disabled={isDisabled}
+      >
+        {buttonSettings.text}
+      </button>
+      <div>
+        <input
+          type="checkbox"
+          name="button-checkbox"
+          onChange={() => setIsDisabled((prev) => !prev)}
+        />
+      </div>
+    </>
   );
 };
 
