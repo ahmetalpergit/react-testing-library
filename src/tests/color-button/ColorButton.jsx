@@ -31,9 +31,10 @@ const ColorButton = () => {
       <div>
         <input
           type="checkbox"
-          name="button-checkbox"
+          id="button-checkbox"
           onChange={() => setIsDisabled((prev) => !prev)}
         />
+        <label htmlFor="button-checkbox">Disable button</label>
       </div>
     </>
   );
