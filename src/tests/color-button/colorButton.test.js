@@ -66,3 +66,14 @@ test('when box is checked button is disabled', () => {
   const colorBtn = screen.getByRole('button');
   expect(colorBtn).toBeDisabled();
 });
+
+test('when button is disabled its color turns gray', () => {
+  render(<ColorButton />);
+
+  const colorButton = screen.getByRole('button');
+  const checkbox = screen.getByRole('checkbox');
+
+  fireEvent.click(checkbox);
+
+  expect(colorButton).toHaveStyle({ backgroundColor: 'gray' });
+});

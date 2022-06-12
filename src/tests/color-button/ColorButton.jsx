@@ -22,7 +22,7 @@ const ColorButton = () => {
   return (
     <>
       <button
-        style={{ backgroundColor: buttonSettings.color }}
+        style={{ backgroundColor: isDisabled ? 'gray' : buttonSettings.color }}
         onClick={buttonClickHandler}
         disabled={isDisabled}
       >
