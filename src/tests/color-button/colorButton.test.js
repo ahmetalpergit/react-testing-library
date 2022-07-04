@@ -2,43 +2,43 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import ColorButton from './ColorButton';
 import { replaceCamelWithSpaces } from './ColorButton';
 
-test('Change to blue button exists', () => {
+test('Change to Midnight Blue button exists', () => {
   render(<ColorButton />);
 
   //find an element with a role of button and text change to blue
-  const colorBtn = screen.getByRole('button', { name: 'Change to blue' });
+  const colorBtn = screen.getByRole('button', { name: 'Change to Midnight Blue' });
   expect(colorBtn).toBeInTheDocument();
 });
 
 test('button has correct initial color', () => {
   render(<ColorButton />);
-  const colorBtn = screen.getByRole('button', { name: 'Change to blue' });
+  const colorBtn = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
   //expect the background color to  be red
-  expect(colorBtn).toHaveStyle({ backgroundColor: 'red' });
+  expect(colorBtn).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 });
 
-test('button turns blue when clicked', () => {
+test('button turns Midnight Blue when clicked', () => {
   render(<ColorButton />);
 
   //get the button element
-  const colorBtn = screen.getByRole('button', { name: 'Change to blue' });
+  const colorBtn = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
   //click the button
   fireEvent.click(colorBtn);
 
   //expect the button color to change to blue
-  expect(colorBtn).toHaveStyle({ backgroundColor: 'blue' });
+  expect(colorBtn).toHaveStyle({ backgroundColor: 'MidnightBlue' });
 });
 
-test('button text changes to Change to red', () => {
+test('button text changes to Change to Medium Violet Red', () => {
   render(<ColorButton />);
-  const colorBtn = screen.getByRole('button', { name: 'Change to blue' });
+  const colorBtn = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
   fireEvent.click(colorBtn);
 
-  //check if text changed to Change to red
-  expect(colorBtn).toHaveTextContent('Change to red');
+  //check if text changed to Change to Medium Violet Red
+  expect(colorBtn).toHaveTextContent('Change to Medium Violet Red');
 });
 
 test('button has a checkbox', () => {
